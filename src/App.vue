@@ -6,7 +6,9 @@ const router = useRouter();
 const { t } = useI18n();
 
 router.beforeEach((to, from) => {
-  document.title = t(to.meta.title);
+  if (to.meta.title) {
+    document.title = t(to.meta.title);
+  }
 });
 </script>
 

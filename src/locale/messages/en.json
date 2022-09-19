@@ -13,6 +13,16 @@
         "create": "Create Poll",
         "browse": "Browse Poll"
       }
+    },
+    "poll": {
+      "page": {
+        "create": {
+          "title": "Create New Poll",
+          "form": {
+            "title": "Poll Name"
+          }
+        }
+      }
     }
   }
 }
