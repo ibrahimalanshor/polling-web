@@ -6,6 +6,7 @@ import { TemplateApp } from '@/components/templates';
 import { TemplatePollForm } from '@/components/templates/poll';
 import { TemplatePollOptionForm } from '@/components/templates/poll-option';
 
+import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { usePollCreate } from '@/composes/poll';
 
@@ -14,6 +15,7 @@ const alert = reactive({
   visible: false,
 });
 
+const router = useRouter();
 const { t } = useI18n();
 const { loading, body, options, createPoll } = usePollCreate();
 
@@ -21,7 +23,9 @@ const handleSubmitForm = async () => {
   alert.visible = false;
 
   try {
-    await createPoll();
+    const res = await createPoll();
+
+    router.push({ name: 'PollView', params: { poll: res.data.id } });
   } catch (err) {
     if (!(err instanceof HttpError)) {
       alert.message = t('error.client');

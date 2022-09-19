@@ -32,7 +32,30 @@
           "error": {
             "422": "Please Complete The Form"
           }
+        },
+        "view": {
+          "title": "View Poll",
+          "label": {
+            "vote-count": "{count} votes"
+          },
+          "action": {
+            "save": "Submit Vote"
+          }
         }
+      }
+    },
+    "404": {
+      "title": "404 Not Found",
+      "description": "Your requested page is not found",
+      "action": {
+        "back": "Go Home"
+      }
+    },
+    "400": {
+      "title": "Something Error",
+      "description": "There was an error displaying the page, please try again",
+      "action": {
+        "back": "Go Home"
       }
     }
   }
