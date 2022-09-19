@@ -36,10 +36,12 @@
         "view": {
           "title": "View Poll",
           "label": {
-            "vote-count": "{count} votes"
+            "vote-count": "{count} votes",
+            "vote-success": "Vote Successful"
           },
           "action": {
-            "save": "Submit Vote"
+            "save": "Submit Vote",
+            "show-result": "Show Results"
           }
         }
       }
