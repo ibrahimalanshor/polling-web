@@ -1,4 +1,7 @@
 {
+  "app": {
+    "name": "Polling"
+  },
   "error": {
     "client": "Something Error",
     "http": {
@@ -19,7 +22,15 @@
         "create": {
           "title": "Create New Poll",
           "form": {
-            "title": "Poll Name"
+            "name": "Poll Name",
+            "option": "Option {number}"
+          },
+          "action": {
+            "add-option": "Add Option",
+            "save": "Save"
+          },
+          "error": {
+            "422": "Please Complete The Form"
           }
         }
       }
