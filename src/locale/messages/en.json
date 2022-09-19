@@ -1,0 +1,18 @@
+{
+  "error": {
+    "client": "Something Error",
+    "http": {
+      "500": "Internal Server Error"
+    }
+  },
+  "page": {
+    "home": {
+      "title": "Create Your Poll In Second",
+      "description": "Want to ask your friends where to go friday night or arrange a meeting with co-workers? Create a poll - and get answers in no time.",
+      "action": {
+        "create": "Create Poll",
+        "browse": "Browse Poll"
+      }
+    }
+  }
+}
