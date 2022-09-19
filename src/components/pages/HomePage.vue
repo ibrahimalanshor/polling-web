@@ -13,11 +13,18 @@ const { t } = useI18n();
         <h1 class="font-bold text-5xl">{{ t('page.home.title') }}</h1>
         <p class="text-lg leading-loose">{{ t('page.home.description') }}</p>
         <div class="flex space-x-4">
-          <base-button
-            color="primary"
-            size="lg"
-            :label="t('page.home.action.create')"
-          />
+          <router-link
+            :to="{ name: 'PollCreate' }"
+            custom
+            v-slot="{ navigate }"
+          >
+            <base-button
+              color="primary"
+              size="lg"
+              :label="t('page.home.action.create')"
+              v-on:click="navigate"
+            />
+          </router-link>
           <base-button size="lg" :label="t('page.home.action.browse')" />
         </div>
       </div>
