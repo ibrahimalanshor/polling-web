@@ -42,6 +42,9 @@
           "action": {
             "save": "Submit Vote",
             "show-result": "Show Results"
+          },
+          "error": {
+            "answered": "You can only answer the poll once"
           }
         }
       }

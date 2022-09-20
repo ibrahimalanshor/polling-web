@@ -15,6 +15,12 @@ export default () => {
     try {
       return await pollAnswerApi.create(body);
     } catch (err) {
+      if (err.response) {
+        if (err.response.status === 403) {
+          throw new HttpError(err.response.data);
+        }
+      }
+
       throw err;
     } finally {
       loading.value = false;
