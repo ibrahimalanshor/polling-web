@@ -35,6 +35,10 @@ const setPage = async () => {
     document.title = poll.value.name;
 
     body.pollId = poll.value._id;
+
+    if (poll.value.userAnswer) {
+      body.pollOptionId = poll.value.userAnswer.pollOptionId;
+    }
   } catch (err) {
     if (!(err instanceof HttpError)) {
       router.push({ name: 'Error' });
