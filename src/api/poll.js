@@ -7,8 +7,8 @@ export default {
 
     return res.data;
   },
-  find: async function (id) {
-    const res = await http().get(`${this.path}/${id}`);
+  find: async function (code) {
+    const res = await http().get(`${this.path}/${code}`);
 
     return res.data;
   },

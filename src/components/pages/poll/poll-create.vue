@@ -25,7 +25,7 @@ const handleSubmitForm = async () => {
   try {
     const res = await createPoll();
 
-    router.push({ name: 'PollView', params: { poll: res.data.id } });
+    router.push({ name: 'PollView', params: { code: res.data.code } });
   } catch (err) {
     if (!(err instanceof HttpError)) {
       alert.message = t('error.client');
