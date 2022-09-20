@@ -34,7 +34,7 @@ export default [
     },
   },
   {
-    path: '/:poll',
+    path: '/:code',
     name: 'PollView',
     component: () => import('@/components/pages/poll/poll-view.vue'),
     meta: {

@@ -26,7 +26,7 @@ const alert = reactive({
   visible: false,
 });
 
-const setPoll = async () => await findPoll(route.params.poll);
+const setPoll = async () => await findPoll(route.params.code);
 const setPage = async () => {
   try {
     await setPoll();
@@ -68,12 +68,12 @@ setPage();
     <div class="my-24 max-w-screen-md mx-auto space-y-6">
       <base-skeleton v-if="loadingPage" />
       <template v-else-if="poll">
-        <h1 class="font-bold text-4xl">{{ poll.name }}</h1>
         <base-alert
           :color="alert.color"
           :text="alert.message"
           v-model="alert.visible"
         />
+        <h1 class="font-bold text-4xl">{{ poll.name }}</h1>
         <div class="space-y-4">
           <template-poll-option-list-item
             v-for="pollOption in poll.options"
