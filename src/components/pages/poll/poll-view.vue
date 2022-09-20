@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue';
+import { HttpError } from '@/interfaces';
 
 import { TemplateApp } from '@/components/templates';
 import { TemplatePollOptionListItem } from '@/components/templates/poll-option';
@@ -54,9 +55,15 @@ const handleClickSave = async () => {
     alert.color = 'success';
     alert.visible = true;
   } catch (err) {
-    alert.message = t('error.client');
-    alert.color = 'error';
-    alert.visible = true;
+    if (!(err instanceof HttpError)) {
+      alert.message = t('error.client');
+      alert.color = 'error';
+      alert.visible = true;
+    } else if (err.errors.status === 403) {
+      alert.message = t('page.poll.page.view.error.answered');
+      alert.color = 'error';
+      alert.visible = true;
+    }
   }
 };
 
