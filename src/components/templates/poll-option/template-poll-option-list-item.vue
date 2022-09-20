@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
@@ -16,6 +16,8 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue']);
 
 const { t } = useI18n();
+
+const pollAnswer = ref(props.modelValue);
 
 const percentage = computed(() => {
   return props.poll.totalAnswers
@@ -43,6 +45,7 @@ const handleChangeRadio = () => {
       <base-radio
         :name="`poll-${poll.id}`"
         :value="pollOption._id"
+        v-model="pollAnswer"
         v-on:change="handleChangeRadio"
       />
       <span>{{ pollOption.name }}</span>
