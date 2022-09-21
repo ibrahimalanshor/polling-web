@@ -91,6 +91,7 @@ setPage();
             :key="pollOption._id"
             :poll="poll"
             :poll-option="pollOption"
+            :disabled="!!poll.userAnswer"
             v-model="body.pollOptionId"
           />
         </div>
@@ -102,8 +103,29 @@ setPage();
           :loading="loadingFindPoll || loadingCreatePollAnswer"
           block
           v-on:click="handleClickSave"
-          v-if="body.pollOptionId"
+          v-if="body.pollOptionId && !poll.userAnswer"
         />
+        <hr />
+        <div class="space-y-2 text-gray-500">
+          <div class="flex items-center">
+            <span class="w-28">{{
+              t('page.poll.page.view.label.total-votes')
+            }}</span>
+            <span class="w-6">:</span>
+            <span class="font-semibold text-gray-900">{{
+              poll.totalAnswers
+            }}</span>
+          </div>
+          <div class="flex items-center">
+            <span class="w-28">{{
+              t('page.poll.page.view.label.author')
+            }}</span>
+            <span class="w-6">:</span>
+            <span class="font-semibold text-gray-900">{{
+              poll.user ?? 'Unknown'
+            }}</span>
+          </div>
+        </div>
       </template>
     </div>
   </template-app>

@@ -37,7 +37,9 @@
           "title": "View Poll",
           "label": {
             "vote-count": "{count} votes",
-            "vote-success": "Vote Successful"
+            "vote-success": "Vote Successful",
+            "total-votes": "Total Votes",
+            "author": "Author"
           },
           "action": {
             "save": "Submit Vote",
