@@ -12,6 +12,10 @@ const props = defineProps({
     type: Object,
     require: true,
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 const emit = defineEmits(['update:modelValue']);
 
@@ -34,7 +38,8 @@ const handleChangeRadio = () => {
 
 <template>
   <label
-    class="relative flex justify-between border rounded-lg p-4 cursor-pointer"
+    class="relative flex justify-between border rounded-lg p-4"
+    :class="{ 'cursor-pointer': !props.disabled }"
   >
     <div
       class="absolute h-full top-0 left-0 rounded-lg bg-gray-100 transition-all"
@@ -47,6 +52,7 @@ const handleChangeRadio = () => {
         :value="pollOption._id"
         v-model="pollAnswer"
         v-on:change="handleChangeRadio"
+        :disabled="props.disabled"
       />
       <span>{{ pollOption.name }}</span>
     </div>
